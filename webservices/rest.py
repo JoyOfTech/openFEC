@@ -50,12 +50,12 @@ from json_encoding import TolerantJSONEncoder
 import sqlalchemy as sa
 
 from db import db_conn, as_dicts
-from candidates.resources import CandidateResource
+#from candidates.resources import CandidateResource
 from committees.resources import CommitteeResource, CommitteeSearch
 from resources import Searchable
 from totals.resources import TotalResource, TotalSearch
 from webservices.common.models import db
-from webservices.resources.candidates import CandidateList
+from webservices.resources.candidates import CandidateList, CandidateView
 
 speedlogger = logging.getLogger('speed')
 speedlogger.setLevel(logging.CRITICAL)
@@ -127,7 +127,7 @@ class Help(restful.Resource):
         return result
 
 api.add_resource(Help, '/')
-api.add_resource(CandidateResource, '/candidate/<string:id>')
+api.add_resource(CandidateView, '/candidate/<string:candidate_id>')
 api.add_resource(CandidateList, '/candidate')
 api.add_resource(CommitteeResource, '/committee/<string:id>')
 api.add_resource(CommitteeSearch, '/committee')
