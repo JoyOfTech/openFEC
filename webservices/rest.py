@@ -127,7 +127,7 @@ class Help(restful.Resource):
         return result
 
 api.add_resource(Help, '/')
-api.add_resource(CandidateView, '/candidate/<string:candidate_id>')
+api.add_resource(CandidateView, '/candidate/<string:id>')
 api.add_resource(CandidateList, '/candidate')
 api.add_resource(CommitteeResource, '/committee/<string:id>')
 api.add_resource(CommitteeSearch, '/committee')
